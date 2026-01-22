@@ -1,8 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Button } from 'react-native';
 import { useState } from 'react';
-import { testBackend } from './api/config';
-import React from 'react';
+import { testBackend } from './services/config';
 
 export default function App() {
   const [message, setMessage] = useState('Press button to test backend');
