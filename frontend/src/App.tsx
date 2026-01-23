@@ -1,5 +1,6 @@
+import './global.css'; 
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { Text, View, TouchableOpacity } from 'react-native';
 import { useState } from 'react';
 import { testBackend } from './services/config';
 
@@ -16,31 +17,25 @@ export default function App() {
   };
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>NEU Notes Hub</Text>
-      <Text style={styles.message}>{message}</Text>
-      <Button title="Test Backend Connection" onPress={handleTest} />
+    <View className="flex-1 bg-white items-center justify-center p-5">
+      <Text className="text-3xl font-bold mb-5 text-gray-800">
+        NEU Notes Hub
+      </Text>
+      
+      <Text className="text-base mb-5 text-center text-gray-600">
+        {message}
+      </Text>
+      
+      <TouchableOpacity 
+        className="bg-blue-500 px-6 py-3 rounded-lg active:bg-blue-600"
+        onPress={handleTest}
+      >
+        <Text className="text-white font-semibold text-base">
+          Test Backend Connection
+        </Text>
+      </TouchableOpacity>
+      
       <StatusBar style="auto" />
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 20,
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginBottom: 20,
-  },
-  message: {
-    fontSize: 16,
-    marginBottom: 20,
-    textAlign: 'center',
-  },
-});
